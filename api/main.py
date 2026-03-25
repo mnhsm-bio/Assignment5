@@ -20,7 +20,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-#orders
+'''
+orders
+'''
 @app.post("/orders/", response_model=schemas.Order, tags=["Orders"])
 def create_order(order: schemas.OrderCreate, db: Session = Depends(get_db)):
     return orders.create(db=db, order=order)
